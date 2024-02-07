@@ -30,15 +30,16 @@ class ClothingKids(Service):
         chat_id = msg.chat.id
 
         result_msg = answer.CLOTHING_KIDS.get(text_msg, answer_main.UNDERSTAND_MSG)
-
+        print('Преде if')
         if text_msg == keyboard.CHOICE_CLOTHING[0]:  # Поиск по адресу
             self.bot.send_message(chat_id, result_msg,
                                   reply_markup=types.ReplyKeyboardRemove())
             self.bot.register_next_step_handler(msg, self.address_find)
 
         elif text_msg in keyboard.CHOICE_CLOTHING:  # Оставшиеся варианты кнопок
+            print('Зашел в if')
             self.bot.send_message(chat_id, result_msg,
-                                  reply_markup=get_keyboard_repeat())
+                                  reply_markup=get_keyboard_repeat(), parse_mode="html")
             self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
 
         else:  # Не кнопка

@@ -9,6 +9,7 @@ def get_keyboard_technic():
             types.KeyboardButton(text=f"{CHOICE_TECHNIC[1].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_TECHNIC[2].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_TECHNIC[3].capitalize()}")
+
         ]
     markup.add(*buttons)
 

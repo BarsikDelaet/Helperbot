@@ -25,6 +25,7 @@ bot = telebot.TeleBot(TOKEN, parse_mode=None)
 def message_start(msg):
     """Приветственное сообщение. Статистика и возможности.
        Клавиатура меню."""
+
     bot.send_message(msg.chat.id, answer_main.HELLO_MAIN, reply_markup=get_keyboard_menu())
 
 

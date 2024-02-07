@@ -37,8 +37,13 @@ class Toys(Service):
                                   reply_markup=types.ReplyKeyboardRemove())  # Убрать клавиатуру
             self.bot.register_next_step_handler(msg, self.address_find)
 
+        elif text_msg == keyboard.CHOICE_TOYS[5]:
+            with open("document_pdf/Обмен игрушками.pdf", "rb") as pdf:
+                f = pdf.read()
+            self.bot.send_document(chat_id, f, visible_file_name="Обмен игрушками")
+
         elif text_msg in keyboard.CHOICE_TOYS:
-            self.bot.send_message(chat_id, result_msg,
+            self.bot.send_message(chat_id, result_msg, parse_mode="html",
                                   reply_markup=get_keyboard_repeat())
             self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
 

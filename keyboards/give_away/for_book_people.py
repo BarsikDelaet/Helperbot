@@ -10,8 +10,7 @@ def get_keyboard_book_people():
             types.KeyboardButton(text=f"{CHOICE_BOOK[2].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_BOOK[3].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_BOOK[4].capitalize()}"),
-            types.KeyboardButton(text=f"{CHOICE_BOOK[5].capitalize()}"),
-            types.KeyboardButton(text=f"{CHOICE_BOOK[6].capitalize()}")
+            types.KeyboardButton(text=f"{CHOICE_BOOK[5].capitalize()}")
         ]
     markup.add(*buttons)
 

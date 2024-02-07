@@ -36,9 +36,27 @@ class BookPeople(Service):
                                   reply_markup=types.ReplyKeyboardRemove())
             self.bot.register_next_step_handler(msg, self.address_find)
 
+        elif text_msg == keyboard.CHOICE_BOOK[2]:  #
+            self.bot.send_message(chat_id, result_msg,
+                                  reply_markup=get_keyboard_repeat(), parse_mode='html')
+            with open("document_pdf/Книжная полка.pdf", "rb") as pdf1:
+                f1 = pdf1.read()
+            self.bot.send_document(chat_id, f1, visible_file_name="Плакат")
+            self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
+
+        elif text_msg == keyboard.CHOICE_BOOK[4]:  # Скачать красивые объявления
+            self.bot.send_message(chat_id, result_msg,
+                                  reply_markup=get_keyboard_repeat(), parse_mode='html')
+            with open("document_pdf/Книжная полка.pdf", "rb") as pdf1:
+                f1 = pdf1.read()
+            with open("document_pdf/Плакат-книжний обмен.pdf", "rb") as pdf2:
+                f2 = pdf2.read()
+            self.bot.send_document(chat_id, f1, visible_file_name="Плакат")
+            self.bot.send_document(chat_id, f2, visible_file_name="Инструкция")
+            self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
         elif text_msg in keyboard.CHOICE_BOOK:  # Оставшиеся варианты кнопок
             self.bot.send_message(chat_id, result_msg,
-                                  reply_markup=get_keyboard_repeat())
+                                  reply_markup=get_keyboard_repeat(), parse_mode='html')
             self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
 
         else:  # Не кнопка

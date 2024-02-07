@@ -9,7 +9,8 @@ def get_keyboard_clothing_kids():
             types.KeyboardButton(text=f"{CHOICE_CLOTHING[1].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_CLOTHING[2].capitalize()}"),
             types.KeyboardButton(text=f"{CHOICE_CLOTHING[3].capitalize()}"),
-            types.KeyboardButton(text=f"{CHOICE_CLOTHING[4].capitalize()}")
+            types.KeyboardButton(text=f"{CHOICE_CLOTHING[4].capitalize()}"),
+            types.KeyboardButton(text=f"{CHOICE_CLOTHING[5].capitalize()}")
         ]
     markup.add(*buttons)
 

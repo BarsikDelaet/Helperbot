@@ -37,7 +37,7 @@ class Technic(Service):
             self.bot.register_next_step_handler(msg, self.address_find)
 
         elif text_msg in keyboard.CHOICE_TECHNIC:
-            self.bot.send_message(chat_id, result_msg,
+            self.bot.send_message(chat_id, result_msg, parse_mode='html',
                                   reply_markup=get_keyboard_repeat())
             self.bot.register_next_step_handler(msg, self.choice_repeat_or_next)
 
